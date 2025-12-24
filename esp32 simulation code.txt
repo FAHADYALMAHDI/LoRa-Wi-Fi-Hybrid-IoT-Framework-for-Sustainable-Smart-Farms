@@ -1,0 +1,42 @@
+#define WATER_PUMP_PIN 26
+
+void setup() {
+  pinMode(WATER_PUMP_PIN, OUTPUT);
+  digitalWrite(WATER_PUMP_PIN, LOW);
+
+  Serial.begin(115200);
+  randomSeed(millis());
+}
+
+void loop() {
+  // قيم وهمية (محاكاة)
+  float temperature = random(200, 350) / 10.0;  // 20 – 35 C
+  float humidity = random(400, 800) / 10.0;     // 40 – 80 %
+  int soilMoisture = random(300, 700);          // Soil moisture
+
+  Serial.println("---- ESP32 Smart Farm (Simulation) ----");
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.println(" C");
+
+  Serial.print("Humidity: ");
+  Serial.print(humidity);
+  Serial.println(" %");
+
+  Serial.print("Soil Moisture: ");
+  Serial.println(soilMoisture);
+
+  // simulation run
+  if (soilMoisture > 450) {
+    Serial.println("Soil is dry -> Pump ON");
+    digitalWrite(WATER_PUMP_PIN, HIGH);
+    delay(1000);
+    digitalWrite(WATER_PUMP_PIN, LOW);
+    Serial.println("Pump OFF");
+  } else {
+    Serial.println("Soil is OK -> Pump OFF");
+  }
+
+  Serial.println("--------------------------------");
+  delay(3000);
+}
