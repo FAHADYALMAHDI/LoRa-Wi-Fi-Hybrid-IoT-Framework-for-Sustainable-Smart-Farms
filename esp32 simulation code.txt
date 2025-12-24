@@ -9,7 +9,7 @@ void setup() {
 }
 
 void loop() {
-  // قيم وهمية (محاكاة)
+  // simulation
   float temperature = random(200, 350) / 10.0;  // 20 – 35 C
   float humidity = random(400, 800) / 10.0;     // 40 – 80 %
   int soilMoisture = random(300, 700);          // Soil moisture
@@ -39,4 +39,5 @@ void loop() {
 
   Serial.println("--------------------------------");
   delay(3000);
+
 }
