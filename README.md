@@ -1,1 +1,0 @@
-# LoRa-Wi-Fi-Hybrid-IoT-Framework-for-Sustainable-Smart-Farms
